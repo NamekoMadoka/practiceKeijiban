@@ -38,7 +38,7 @@ while ($res=fgets($fp)) {
  <html lang="ja" dir="ltr">
      <head>
          <meta charset="utf-8">
-         <title>掲示板</title>
+         <title>掲示板です</title>
      </head>
      <body>
          <?php echo $message; ?>
