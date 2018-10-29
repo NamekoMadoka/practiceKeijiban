@@ -7,14 +7,14 @@ $message="";
 $name=(isset( $_POST["name"])=== true) ?$_POST["name"]: "";
 $comment =(isset( $_POST["comment"])=== true) ? trim($_POST["comment"]) : "";
 $txt="C:xampp\htdocs\php1\data.txt";
-if(isset($_POST["send"])==true){
+if(isset($_POST["send"])===true){
     if($name=="")$err_msg1="名前を入力してください";
 
-    if ($comment) $err_msg2="コメントを入力してください";
+    if ($comment=="") $err_msg2="コメントを入力してください";
 
-    if($err_msg1==""&& $err_msg2=""){
+    if($err_msg1==""&& $err_msg2==""){
         $fp=fopen($txt,"a");
-        fwrite($fp, $ma."\t".$comment."\n");
+        fwrite($fp, $name."\t".$comment."\n");
         $message="書き込みに成功しました。";
     }
 }
@@ -55,7 +55,7 @@ while ($res=fgets($fp)) {
          </form>
          <dl>
              <?php foreach ($dataArr as $data):?>
-                <p> <span><?php echo $data["name"]; ?></span>:<span><?php echo "comment"; ?></span> </p>
+                <p> <span><?php echo $data["name"]; ?></span>:<span><?php echo $data["comment"]; ?></span> </p>
             <?php endforeach;?>
 
          </dl>
